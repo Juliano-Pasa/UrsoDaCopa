@@ -21,7 +21,7 @@ def count_weekday(start, finish, day):
 def clean_tweet_date_for_files(date):
     # UTC to BRT timezone conversion
 
-    date_time = datetime.strptime(date, "%a %b %d %H:%M:%S %z %Y") # Tweet hour parsing
+    date_time = datetime.strptime(date, "%a %b %d %H:%M:%S %z %Y") # Tweet datetime parsing
 
     # BRT timezone construction
     brt_time_delta = timedelta(hours=-3) 
