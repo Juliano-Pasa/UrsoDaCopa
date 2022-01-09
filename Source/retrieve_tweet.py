@@ -1,5 +1,8 @@
 """
-    This module is responsable from retrieving tweets and their metrics
+    This module is responsable from retrieving a user's last tweet and its metrics
+
+    [user_ID] = user's ID which tweet will be retrieved
+    [write] = True to write metrics in a file / False to print the metrics
 """
 
 import sys
@@ -9,23 +12,38 @@ from Tools.api_authentication import auth_api
 from Tools.calendar_operations import clean_tweet_date_for_files
 from Tools.file_manipulation import write_to_file
 
-api = auth_api()
+if __name__ == "__main__":
 
-user_ID = "UrsoBrTodaSexta" # My user ID
+    arg_names = ['command', 'user_ID', 'write']
+    args = dict(zip(arg_names, sys.argv))
 
-last_tweet = api.user_timeline(user_id=user_ID, count=1, tweet_mode='extended')
+    if 'user_ID' not in args:
+        arg_names['user_ID'] = "UrsoBrTodaSexta"
 
-tweet_id = last_tweet[0]._json['id']
-tweet_date = last_tweet[0]._json['created_at']
+    if 'write' not in args:
+        arg_names['write'] = True
 
-metrics = [
-        last_tweet[0]._json['favorite_count'], 
-        last_tweet[0]._json['retweet_count'], 
-        last_tweet[0]._json['user']['followers_count']
-        ]
+    api = auth_api() #tweepy api
 
-date_time_str = clean_tweet_date_for_files(tweet_date)
+    # Retrieve last tweet
 
-filename = date_time_str + "_" + str(tweet_id)
+    last_tweet = api.user_timeline(user_id=arg_names['user_ID'], count=1, tweet_mode='extended')
 
-write_to_file(filename, metrics)
+    tweet_id = last_tweet[0]._json['id']
+    tweet_date = last_tweet[0]._json['created_at']
+
+    # Retrieve available metrics
+
+    metrics = [
+            last_tweet[0]._json['favorite_count'], 
+            last_tweet[0]._json['retweet_count'], 
+            last_tweet[0]._json['user']['followers_count']
+            ]
+
+    if args['write']:
+        date_time_str = clean_tweet_date_for_files(tweet_date)
+        filename = date_time_str + "_" + str(tweet_id)
+        write_to_file(filename, metrics)
+
+    else:
+        print(metrics)
