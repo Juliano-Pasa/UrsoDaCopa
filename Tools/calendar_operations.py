@@ -3,6 +3,7 @@
 """
 
 import calendar
+from datetime import datetime, timedelta, timezone
 
 def count_weekday(start, finish, day):
     diff = finish - start
@@ -17,10 +18,16 @@ def count_weekday(start, finish, day):
 
     return total
 
-def clean_tweet_date(date):
-    print(date)
+def clean_tweet_date_for_files(date):
+    # UTC to BRT timezone conversion
 
-    date_split = date.split(' ')
-    print(date_split)
+    date_time = datetime.strptime(date, "%a %b %d %H:%M:%S %z %Y") # Tweet hour parsing
 
-    return True
+    # BRT timezone construction
+    brt_time_delta = timedelta(hours=-3) 
+    brt_timezone = timezone(brt_time_delta, "BRT")
+
+    # Timezone conversion
+    brt_date_time = date_time.astimezone(brt_timezone)
+
+    return brt_date_time
