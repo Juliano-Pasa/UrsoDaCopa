@@ -2,7 +2,7 @@
 Twitter Bot that counts down to FIFA World Cup Qatar 2022 every Friday.
 
 This project consists of a Twitter Bot that posts the same video every Friday but at different times of the day.
-It then collects data about the tweet several times so it can later be analyzed if posting at different hours of the day has an effect on how popular the tweet can get.
+It then collects data about the tweet several times, and this data can be analyzed to check if posting at different hours of the day has an effect on how popular the tweet can get.
 
 The video used is not mine.
 
