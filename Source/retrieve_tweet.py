@@ -3,11 +3,11 @@
 
     [user_ID] = user's ID which tweet will be retrieved
     [write] = W to write metrics in a file / P to print the metrics
+
 """
 
 import sys
 
-sys.path.append('./')
 from Tools.api_authentication import auth_api
 from Tools.calendar_operations import clean_tweet_date_for_files
 from Tools.file_manipulation import write_to_file

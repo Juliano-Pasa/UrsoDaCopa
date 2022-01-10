@@ -2,10 +2,8 @@
     This module is responsable for posting all tweets
 """ 
 
-import sys
 from datetime import date
 
-sys.path.append('./')
 from Tools.calendar_operations import count_weekday
 from Tools.api_authentication import auth_api
 

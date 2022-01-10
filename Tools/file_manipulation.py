@@ -6,7 +6,7 @@ import csv
 
 def write_to_file(filename, metrics):
     
-    file_path = "Data/" + filename + ".csv"
+    file_path = "../Data/" + filename + ".csv"
     
     with open(file_path, "a", newline='') as f:
         writer = csv.writer(f)
