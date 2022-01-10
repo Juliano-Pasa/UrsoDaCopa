@@ -16,23 +16,31 @@ Python: 3.7.3
 # Installation
 1. Create your Python virtual environment in the root folder:
 
-```python3 -m venv name```
+```
+python3 -m venv name
+```
 
 2. Activate your Python virtual environment
 
-On Windows: `name/Scripts/activate`
+```
+On Windows: name/Scripts/activate
 
-On Linux: `source name/bin/activate`
+On Linux: source name/bin/activate
+```
 
 3. Install pip
 
-On Windows: `python3 -m pip install --upgrade pip`
+```
+On Windows: python3 -m pip install --upgrade pip
 
-On Linux: `sudo apt-get install python3-pip`
+On Linux: sudo apt-get install python3-pip
+```
 
 4. Install requirements
 
-`pip install -r requirements.txt`
+```
+pip install -r requirements.txt
+```
 
 Add your API Keys to your environment variables
 Add the root folder path to PYTHONPATH environment variable
