@@ -16,7 +16,7 @@ Python: 3.7.3
 # Installation
 1. Create your Python virtual environment in the root folder:
 
-`python3 -m venv name`
+```python3 -m venv name```
 
 2. Activate your Python virtual environment
 
