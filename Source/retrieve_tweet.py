@@ -2,7 +2,7 @@
     This module is responsable from retrieving a user's last tweet and its metrics
 
     [user_ID] = user's ID which tweet will be retrieved
-    [write] = True to write metrics in a file / False to print the metrics
+    [write] = W to write metrics in a file / P to print the metrics
 """
 
 import sys
@@ -21,7 +21,7 @@ if __name__ == "__main__":
         args['user_ID'] = "UrsoBrTodaSexta"
 
     if 'write' not in args:
-        args['write'] = True
+        args['write'] = "W"
 
     api = auth_api() #tweepy api
 
@@ -40,7 +40,7 @@ if __name__ == "__main__":
             last_tweet[0]._json['user']['followers_count']
             ]
 
-    if args['write']:
+    if args['write'] == "W":
         date_time_str = clean_tweet_date_for_files(tweet_date)
         filename = date_time_str + "_" + str(tweet_id)
         write_to_file(filename, metrics)
