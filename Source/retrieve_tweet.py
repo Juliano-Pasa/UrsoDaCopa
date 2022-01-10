@@ -18,16 +18,16 @@ if __name__ == "__main__":
     args = dict(zip(arg_names, sys.argv))
 
     if 'user_ID' not in args:
-        arg_names['user_ID'] = "UrsoBrTodaSexta"
+        args['user_ID'] = "UrsoBrTodaSexta"
 
     if 'write' not in args:
-        arg_names['write'] = True
+        args['write'] = True
 
     api = auth_api() #tweepy api
 
     # Retrieve last tweet
 
-    last_tweet = api.user_timeline(user_id=arg_names['user_ID'], count=1, tweet_mode='extended')
+    last_tweet = api.user_timeline(user_id=args['user_ID'], count=1, tweet_mode='extended')
 
     tweet_id = last_tweet[0]._json['id']
     tweet_date = last_tweet[0]._json['created_at']
