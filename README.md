@@ -25,7 +25,7 @@ python3 -m venv name
 ```
 On Windows: name/Scripts/activate
 
-On Linux: source name/bin/activate
+On Linux: $ source name/bin/activate
 ```
 
 3. Install pip
@@ -33,18 +33,24 @@ On Linux: source name/bin/activate
 ```
 On Windows: python3 -m pip install --upgrade pip
 
-On Linux: sudo apt-get install python3-pip
+On Linux: $ sudo apt-get install python3-pip
 ```
 
 4. Install requirements
 
 ```
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 5. Add your API Keys and root folder path to your environment variables
-    - CONSUMER_KEY
-    - CONSUMER_KEY_SECRET
-    - ACCESS_TOKEN
-    - ACCESS_TOKEN_SECRET
-    - PYTHONPATH
+```
+    On Linux: add them into your .bash_profile
+
+    $ nano .bash_profile
+
+    export CONSUMER_KEY="Your consumer key"
+    export CONSUMER_KEY_SECRET="Your consumer key secret"
+    export ACCESS_TOKEN="Your access token"
+    export ACCESS_TOKEN_SECRET="Your access token secret"
+    export PYTHONPATH=Root/Folder/absolute/path
+```
