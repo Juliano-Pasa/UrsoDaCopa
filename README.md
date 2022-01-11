@@ -42,5 +42,9 @@ On Linux: sudo apt-get install python3-pip
 pip install -r requirements.txt
 ```
 
-Add your API Keys to your environment variables
-Add the root folder path to PYTHONPATH environment variable
+5. Add your API Keys and root folder path to your environment variables
+    - CONSUMER_KEY
+    - CONSUMER_KEY_SECRET
+    - ACCESS_TOKEN
+    - ACCESS_TOKEN_SECRET
+    - PYTHONPATH

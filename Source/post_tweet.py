@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     # Media upload to twitter
 
-    media = api.media_upload("Media/main-vid.mp4")
+    media = api.media_upload("../Media/main-vid.mp4")
     media_id = media.media_id
 
     # Tweet post

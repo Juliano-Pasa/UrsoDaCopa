@@ -13,8 +13,6 @@ def get_keys():
 	keys['access_token'] 		= os.environ.get('ACCESS_TOKEN')
 	keys['access_token_secret'] = os.environ.get('ACCESS_TOKEN_SECRET')
 
-	print(keys)
-
 	return keys
 
 def auth_api():
