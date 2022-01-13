@@ -9,7 +9,7 @@
 import sys
 
 from Tools.api_authentication import auth_api
-from Tools.calendar_operations import clean_tweet_date_for_files
+from Tools.calendar_operations import clean_tweet_date_for_files, datetime_for_metrics
 from Tools.file_manipulation import write_to_file
 
 if __name__ == "__main__":
@@ -35,9 +35,10 @@ if __name__ == "__main__":
     # Retrieve available metrics
 
     metrics = [
+            datetime_for_metrics(),
             last_tweet[0]._json['favorite_count'], 
             last_tweet[0]._json['retweet_count'], 
-            last_tweet[0]._json['user']['followers_count']
+            last_tweet[0]._json['user']['followers_count'],
             ]
 
     if args['write'] == "W":
