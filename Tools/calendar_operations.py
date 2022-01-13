@@ -33,3 +33,7 @@ def clean_tweet_date_for_files(date):
     date_time_str = str(brt_date_time.year) + "_" + str(brt_date_time.month) + "_" + str(brt_date_time.day) + "_" + str(brt_date_time.hour)
 
     return date_time_str
+
+def datetime_for_metrics():
+    date_time = datetime.now()
+    return date_time.strftime("%y%m%d%H%M")
