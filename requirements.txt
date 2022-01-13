@@ -9,6 +9,7 @@ idna==3.3
 multidict==5.2.0
 numpy==1.21.5
 oauthlib==3.1.1
+python-crontab==2.6.0
 python-dateutil==2.8.2
 pytz==2021.3
 requests==2.26.0
