@@ -2,7 +2,7 @@
 Twitter Bot that counts down to FIFA World Cup Qatar 2022 every Friday.
 
 This project consists of a Twitter Bot that posts the same video every Friday but at different times of the day.
-It then collects data about the tweet several times, so this data can be analyzed to check if posting at different hours of the day has an effect on how popular the tweet can get.
+It then collects data about the tweet several times, so this data can be analyzed to check if posting at different hours of the day has an effect on how popular the tweet can get. There are still some hardcoded numbers related to the usage of this specific bot, but there are plans to make everything editable in the future. 
 
 The video used is not mine.
 
@@ -17,7 +17,7 @@ Python: 3.7.3
 To run this code, you must have Twitter API elevated access since it uses standard v1.1 endpoints and Twitter API v2. Enter this [link](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api) to know more about how to get access to Twitter's API.
 
 
-Currently, the process of automating the scripts for posting and retrieving tweet information only works on Linux because it uses crontab. You can edit the jobs through the [cron_management.py](Source/cron_management.py) file in line 22 for the post tweet job and in line 29 for the retrieve tweet data job using crontab notation. You can visit this [website](https://crontab.guru/) to understand and generate the crontab notation. There are plans to make an automation for Windows in the future.
+Currently, the process of automating the scripts for posting and retrieving tweet information only works on Linux because it uses crontab. There are plans to make an automation for Windows in the future.
 
 
 ## 1. Add your API Keys and root folder path to your environment variables
@@ -78,3 +78,19 @@ $ source name/bin/activate
 $ cd Source
 $ python3 cron_management.py your_user
 ```
+
+# Fit the code to you
+Currently, there is no interface to edit some parameters, so you have to do it by hand navigating through the code.
+
+- Change Media
+
+To change the media you upload, first move it to the [Media](Media) folder. Then, go to line 26 in [post_tweet.py](Source/post_tweet.py) and change "main-vid.mp4" to your media name.
+
+- Change Tweet Text
+
+To change your tweet text, go to line 20 in [post_tweet.py](Source/post_tweet.py) and type what you want in between "".  
+Example: tweet_text = "I want to write this!"
+
+- Change cronjobs (only Linux)
+
+To change your cronjobs, go to [cron_management.py](Source/cron_management.py) and edit line 22 and/or line 29 using crontab notation. You can visit this [website](https://crontab.guru/) to understand and generate the crontab notation.
