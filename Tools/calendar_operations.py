@@ -30,7 +30,7 @@ def clean_tweet_date_for_files(date):
     # Timezone conversion
     brt_date_time = date_time.astimezone(brt_timezone)
 
-    date_time_str = str(brt_date_time.year) + "_" + str(brt_date_time.month) + "_" + str(brt_date_time.day) + "_" + str(brt_date_time.hour)
+    date_time_str = brt_date_time.strftime("%Y_%m_%d_%H")
 
     return date_time_str
 
