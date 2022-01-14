@@ -4,6 +4,7 @@
     [usr] = linux user
     [action] = 'create' to create/'remove' to remove jobs related to the tweets 
     [jobs] = Do action on "p" for post/ "r" for retrieve/ "pr" for both
+  
 """
 
 import os
@@ -16,14 +17,14 @@ def create_jobs(usr, jobs):
         # Tweet posting job
 
         if jobs != "r":
-            post_command_path = os.path.join(os.path.dirname(__file__), "../Automation/post.sh")
+            post_command_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../Automation/post.sh")
             post_job = cron.new(command=post_command_path, comment="post_job")
             post_job.setall(1, 0, None, None, 5)
 
         # Tweet info retrieving job
 
         if jobs != "p":
-            retrieve_command_path = os.path.join(os.path.dirname(__file__), "../Automation/retrieve.sh")
+            retrieve_command_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../Automation/retrieve.sh")
             retrieve_job = cron.new(command=retrieve_command_path, comment="retrieve_job")
             retrieve_job.setall('*/15', None, None, None, None)
 
@@ -38,9 +39,9 @@ def remove_jobs(usr, jobs):
             cron.remove_all(comment="retrieve_job")
 
 
-def update_post_job(usr):
-    with CronTab(user=usr) as cron:
-        iter = cron.find_comment("post_job")
+# def update_post_job(usr):
+#     with CronTab(user=usr) as cron:
+#         iter = cron.find_comment("post_job")
 
 
 if __name__ == "__main__":

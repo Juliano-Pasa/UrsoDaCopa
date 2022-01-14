@@ -8,7 +8,7 @@ import csv
 def write_to_file(filename, metrics):
     
     relative_path = "../Data/" + filename + ".csv"
-    file_path = os.path.join(os.path.dirname(__file__), relative_path)
+    file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), relative_path)
     
     with open(file_path, "a", newline='') as f:
         writer = csv.writer(f)
