@@ -2,7 +2,7 @@
 Twitter Bot that counts down to FIFA World Cup Qatar 2022 every Friday.
 
 This project consists of a Twitter Bot that posts the same video every Friday but at different times of the day.
-It then collects data about the tweet several times, so this data can be analyzed to check if posting at different hours of the day has an effect on how popular the tweet can get. There are still some hardcoded numbers related to the usage of this specific bot, but there are plans to make everything editable in the future. 
+It then collects data about the tweet several times, so this data can be analyzed to check if posting at different hours of the day has an effect on how popular the tweet can get. There are still some hardcoded numbers related to the usage of this specific bot, but there are plans to make everything easily editable in the future. 
 
 The video used is not mine.
 
@@ -38,17 +38,19 @@ export PYTHONPATH=Project Main Folder Absolute Path
 
 - On Windows, you can follow this [tutorial](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/). Name your environment variables the same as you would in Linux.
 
-## 2. Create your Python virtual environment in the root folder:
+## 2. Create your Python virtual environment in projetct main folder:
 
 ```
-$ python3 -m venv name 
-# You can use 'venv' as a name
+On Windows: python3 -m venv name
+
+On Linux: $ python3 -m venv name 
+# It's commom to use 'venv' as the folder name as well
 ```
 
 ## 3. Activate your Python virtual environment
 
 ```
-On Windows: name/Scripts/activate
+On Windows: name\Scripts\activate
 
 On Linux: $ source name/bin/activate
 ```
@@ -94,3 +96,6 @@ Example: tweet_text = "I want to write this!"
 - Change cronjobs (only Linux)
 
 To change your cronjobs, go to [cron_management.py](Source/cron_management.py) and edit line 22 and/or line 29 using crontab notation. You can visit this [website](https://crontab.guru/) to understand and generate the crontab notation.
+
+
+
