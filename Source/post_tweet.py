@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     fridays = count_weekday(d2, d1, 4) # Monday = 0, Tuesday = 1, ..., Friday = 4, ..., Sunday = 6
 
-    tweet_text = f"Ainda faltam {fridays} sexta-feiras para a copa do mundo!"
+    tweet_text = f"Ainda faltam {fridays} sextas-feiras para a copa do mundo!"
 
     api = auth_api() #tweepy api
 
