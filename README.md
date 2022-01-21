@@ -1,4 +1,5 @@
 # Urso Da Copa
+Readme em [português](#urso-da-copa-pt-br).  
 Twitter Bot that counts down to FIFA World Cup Qatar 2022 every Friday.
 
 This project consists of a Twitter Bot that posts the same video every Friday but at different times of the day.
@@ -81,21 +82,80 @@ $ cd Source
 $ python3 cron_management.py your_user
 ```
 
-# Fit the code to you
-Currently, there is no interface to edit some parameters, so you have to do it by hand navigating through the code.
+# Urso Da Copa PT-BR
+Bot do Twitter que realiza contagem regressiva pra Copa do Mundo FIFA Qatar 2022 toda sexta-feira.
 
-- Change Media
+Esse projeto consiste em um Bot do Twitter que posta o mesmo vídeo toda sexta-feira mas em diferentes horários do dia.
+Ele então coleta informações sobre o tuíte várias vezes, para que esses possam ser analizados para checar se postar em diferentes horas do dia tem impacto no quão popular o tuíter pode ser. Ainda há alguns números específicos dentro do código relacionados ao uso de Bot, mas há planos para tornar tudo fácilmente editável no futuro.
 
-To change the media you upload, first move it to the [Media](Media) folder. Then, go to line 26 in [post_tweet.py](Source/post_tweet.py) and change "main-vid.mp4" to your media name.
+O vídeo usado não é meu.
 
-- Change Tweet Text
-
-To change your tweet text, go to line 20 in [post_tweet.py](Source/post_tweet.py) and type what you want in between "".  
-Example: tweet_text = "I want to write this!"
-
-- Change cronjobs (only Linux)
-
-To change your cronjobs, go to [cron_management.py](Source/cron_management.py) and edit line 22 and/or line 29 using crontab notation. You can visit this [website](https://crontab.guru/) to understand and generate the crontab notation.
+# Informações do sistema
+Todo código está sendo rodado em uma MV do Google Cloud Platform.
+SO: Debian 10 Buster v20211209  
+Python: 3.7.3  
 
 
+# Instalação
+Para rodar esse código, você precisa ter o acesso elevado da API do Twitter já que ele usa funcionalidades do standard v1.1 e do Twitter API v2. Entre nesse [link](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api) para saber mais sobre como conseguir acesso à API do Twitter.
 
+
+Atualmente, o processo de automação dos códigos para postagem e recuperação de informação do tuíte só funciona no Linux porque ele usa o crontab. Há planos para fazer uma automação para o Windows no futuro.
+
+## 1. Adicione as chaves de API e o caminho para a pasta principal do projeto nas variáveis de ambiente 
+
+- No Linux, abra seu .bash_profile. Você pode utilizar o editor de texto que quiser.
+```
+$ nano .bash_profile 
+```
+
+- Copie isso para seu arquivo com suas respectivas chaves e caminho da pasta do projeto.
+```
+export CONSUMER_KEY="Sua chave de API"
+export CONSUMER_KEY_SECRET="Sua chave secreta de API"
+export ACCESS_TOKEN="Seu token de acesso"
+export ACCESS_TOKEN_SECRET="Seu token de acesso secreto"
+export PYTHONPATH=Caminho Absoluto da Pasta Principal do Projeto
+```
+
+- No Windows, você pode seguir esse [tutorial](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/). Nomeie suas variáveis de ambiente igual mostrado acima no Linux.
+
+## 2. Crie seu ambiente virtual do Python na pasta principal do projeto
+```
+$ python3 -m venv nome 
+# Você pode usar 'venv' como nome
+```
+
+## 3. Ative seu ambiente virtual do Python 
+
+```
+No Windows: nome/Scripts/activate
+
+No Linux: $ source nome/bin/activate
+```
+
+## 4. Instale o pip
+
+```
+No Windows: python3 -m pip install --upgrade pip
+
+No Linux: $ sudo apt-get install python3-pip
+```
+
+## 5. Instale os requisitos
+
+```
+$ pip install -r requirements.txt
+```
+
+## 6. Automatize os códigos (somente no Linux)
+
+- Inicie o ambiente virtual na sua pasta principal do projeto 
+```
+$ source name/bin/activate
+```
+- Execute criação do cronjob
+```
+$ cd Source
+$ python3 cron_management.py your_user
+```
