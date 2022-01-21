@@ -42,7 +42,7 @@ export PYTHONPATH=Project Main Folder Absolute Path
 ## 2. Create your Python virtual environment in projetct main folder:
 
 ```
-On Windows: python3 -m venv name
+On Windows: python -m venv name
 
 On Linux: $ python3 -m venv name 
 # It's commom to use 'venv' as the folder name as well
@@ -122,8 +122,10 @@ export PYTHONPATH=Caminho Absoluto da Pasta Principal do Projeto
 
 ## 2. Crie seu ambiente virtual do Python na pasta principal do projeto
 ```
-$ python3 -m venv nome 
-# Você pode usar 'venv' como nome
+No Windows: python -m venv nome
+
+No Linux: $ python3 -m venv nome 
+# É comum usar 'venv' como nome também
 ```
 
 ## 3. Ative seu ambiente virtual do Python 
