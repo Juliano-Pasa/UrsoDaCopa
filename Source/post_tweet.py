@@ -2,6 +2,8 @@
     This module is responsable for posting all tweets
 """ 
 
+import os
+
 from datetime import date
 
 from Tools.calendar_operations import count_weekday
@@ -23,7 +25,8 @@ if __name__ == "__main__":
 
     # Media upload to twitter
 
-    media = api.media_upload("../Media/main-vid.mp4")
+    
+    media = api.media_upload(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../Media/main-vid.mp4"))
     media_id = media.media_id
 
     # Tweet post
